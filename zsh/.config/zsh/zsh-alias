@@ -1,0 +1,7 @@
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+alias aria-rpc="aria2c --conf-path='/Users/hwy/.aria2/aria2.conf' -D"
+# alias ascii="man ascii"
+# alias vimzsh="vim ~/.zshrc"
+# alias vim=nvim
+alias ssh-jupyter="ssh -p 10876 -Y -N -L 8888:localhost:10224 liaoqisheng@10.99.4.35"
