@@ -7,7 +7,7 @@ setopt appendhistory
 setopt autocd extendedglob nomatch menucomplete
 setopt interactive_comments
 stty stop undef		# Disable ctrl-s to freeze terminal.
-zle_highlight=('paste:none')
+# zle_highlight=('paste:none')
 
 # beeping is annoying
 unsetopt BEEP
@@ -35,7 +35,7 @@ source "$ZDOTDIR/zsh-functions"
 # Normal files to source
 zsh_add_file "zsh-exports"
 # zsh_add_file "zsh-vim-mode"
-zsh_add_file "zsh-aliases"
+zsh_add_file "zsh-alias"
 # zsh_add_file "zsh-prompt"
 
 # Plugins
@@ -54,19 +54,21 @@ zsh_add_theme "romkatv/powerlevel10k"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Key-bindings
-bindkey -s '^o' 'ranger^M'
-bindkey -s '^f' 'zi^M'
-bindkey -s '^s' 'ncdu^M'
-# bindkey -s '^n' 'nvim $(fzf)^M'
-# bindkey -s '^v' 'nvim\n'
-bindkey -s '^z' 'zi^M'
-bindkey '^[[P' delete-char
-bindkey "^p" up-line-or-beginning-search # Up
-bindkey "^n" down-line-or-beginning-search # Down
-bindkey "^k" up-line-or-beginning-search # Up
-bindkey "^j" down-line-or-beginning-search # Down
-bindkey -r "^u"
-bindkey -r "^d"
+# bindkey -s '^o' 'ranger^M'
+# bindkey -s '^f' 'zi^M'
+# bindkey -s '^s' 'ncdu^M'
+# # bindkey -s '^n' 'nvim $(fzf)^M'
+# # bindkey -s '^v' 'nvim\n'
+# bindkey -s '^z' 'zi^M'
+# bindkey '^[[P' delete-char
+# bindkey "^p" up-line-or-beginning-search # Up
+# bindkey "^n" down-line-or-beginning-search # Down
+# bindkey "^k" up-line-or-beginning-search # Up
+# bindkey "^j" down-line-or-beginning-search # Down
+# bindkey -r "^u"
+# bindkey -r "^d"
+bindkey "^u" backward-kill-line
+
 
 # FZF 
 # # TODO update for mac
@@ -77,7 +79,7 @@ bindkey -r "^d"
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # [ -f $ZDOTDIR/completion/_fnm ] && fpath+="$ZDOTDIR/completion/"
 # export FZF_DEFAULT_COMMAND='rg --hidden -l ""'
-compinit
+# compinit
 
 
 # >>>> Vagrant command completion (start)

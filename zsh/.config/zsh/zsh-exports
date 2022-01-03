@@ -75,9 +75,9 @@ unset __conda_setup
 # homebrew
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
 
-export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
-export PATH="/usr/local/sbin:$PATH"
-export PATH="/Library/Developer/CommandLineTools/usr/bin/:$PATH"
-# export PATH="/usr/local/opt/llvm/bin:$PATH"
-export PATH="/usr/local/Cellar/redis/6.2.4/bin:$PATH"
-export PATH="/usr/local/Cellar/neovim/0.4.4/bin:$PATH"
+PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+PATH="$PATH:/usr/local/sbin"
+PATH="/$PATH:Library/Developer/CommandLineTools/usr/bin/"
+# export PATH="/$PATH:usr/local/opt/llvm/bin"
+PATH="/$PATH:usr/local/Cellar/redis/6.2.4/bin"
+
