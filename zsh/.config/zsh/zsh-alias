@@ -39,3 +39,6 @@ CYGWIN* | MINGW32* | MSYS* | MINGW*)
 	# echo 'Other OS'
 	;;
 esac
+
+alias vim=nvim
+alias ll='exa -la'

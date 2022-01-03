@@ -1,8 +1,10 @@
 local keymap = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
-
-vim.g.mapleader = ' '  -- leader map ==> <space>
+--Remap space as leader key
+keymap("", "<Space>", "<Nop>", opts)
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 -- Modes
 --   normal_mode = "n",
@@ -20,6 +22,7 @@ keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 keymap("n", "<leader>q", "<cmd>q!<CR>", opts)
 keymap("n", "<leader>w", "<cmd>w!<CR>", opts)
+keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
 
 -- Telescope --
 -- find file
@@ -29,18 +32,19 @@ keymap("n", "<leader>F", "<cmd>Telescope live_grep theme=ivy<cr>", opts)
 -- find project
 keymap("n", "<leader>P", "<cmd>lua require('telescope').extensions.projects.projects()<cr>", opts)
 
-
--- Packer --
--- Packer Sync
-keymap("n", "<leader>ps", "<cmd>PackerSync<cr>", opts)
+-- Comment
+keymap('n', '<leader>/', '<CMD>lua require("Comment.api").toggle_current_linewise()<CR>', opts)
+keymap('n', '<S-leader>/', '<CMD>lua require("Comment.api").toggle_current_blockwise()<CR>', opts)
 
 -- Nvimtree
 keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 
--- Navigate buffers
-keymap("n", "<S-l>", ":bnext<CR>", opts)
-keymap("n", "<S-h>", ":bprevious<CR>", opts)
-keymap("n", "<leader>c", ":BufferClose<CR>", opts)
+-- Navigate buffers bufferline
+keymap("n", "<Tab>", ":BufferLineCycleNext<CR>", opts)
+keymap("n", "<S-Tab>", ":BufferLineCyclePrev", opts)
+keymap("n", "gb", ":BufferLinePick<CR>", opts)
+keymap("n", "<leader>c", "<cmd>Bdelete!<CR>", opts)
+
 
 -- Navigate jump through
 keymap("n", "<C-[>", "<C-o>", opts)
@@ -62,4 +66,7 @@ keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 
 
+-- Comment
+keymap('x', '<leader>/', '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>', opts)
+keymap('x', '<S-leader>/', '<ESC><CMD>lua require("Comment.api").toggle_blockwise_op(vim.fn.visualmode())<CR>', opts)
 
