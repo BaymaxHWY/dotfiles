@@ -13,7 +13,7 @@ cmp.setup({
 			before = function(entry, vim_item)
 				return vim_item
 			end,
-      menu = {buffer = "[Buf]", nvim_lsp = "[LSP]", dictionary = "[Dict]", vsnip = "[Vsnip]", path = "[Path]"},
+      menu = {buffer = "[Buf]", nvim_lsp = "[LSP]", vsnip = "[Vsnip]", path = "[Path]"},
 		}),
 	},
 

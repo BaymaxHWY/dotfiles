@@ -41,7 +41,7 @@ return require('packer').startup(function(use)
   use 'lukas-reineke/indent-blankline.nvim' -- guides to all lines (including empty lines).
   use 'goolord/alpha-nvim' -- start greeter page
   use 'lewis6991/impatient.nvim'
-  -- use 'folke/which-key.nvim'
+  use 'folke/which-key.nvim'
   use "moll/vim-bbye" -- close buffer
   use {"akinsho/toggleterm.nvim"} -- terminal
   use "folke/zen-mode.nvim"  -- zen mode
@@ -67,7 +67,7 @@ return require('packer').startup(function(use)
   use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
-  use 'uga-rosa/cmp-dictionary'
+  -- use 'uga-rosa/cmp-dictionary'
   use {'hrsh7th/vim-vsnip', after = "nvim-cmp"}
   use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
   use 'L3MON4D3/LuaSnip' -- Snippets plugin

@@ -20,30 +20,30 @@ keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
-keymap("n", "<leader>q", "<cmd>q!<CR>", opts)
-keymap("n", "<leader>w", "<cmd>w!<CR>", opts)
-keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
+-- keymap("n", "<leader>q", "<cmd>q!<CR>", opts)
+-- keymap("n", "<leader>w", "<cmd>w!<CR>", opts)
+-- keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
 
 -- Telescope --
 -- find file
-keymap("n", "<leader>f", "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>", opts)
+-- keymap("n", "<leader>f", "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>", opts)
 -- find text
-keymap("n", "<leader>F", "<cmd>Telescope live_grep theme=ivy<cr>", opts)
+-- keymap("n", "<leader>F", "<cmd>Telescope live_grep theme=ivy<cr>", opts)
 -- find project
-keymap("n", "<leader>P", "<cmd>lua require('telescope').extensions.projects.projects()<cr>", opts)
+-- keymap("n", "<leader>P", "<cmd>lua require('telescope').extensions.projects.projects()<cr>", opts)
 
 -- Comment
 keymap('n', '<leader>/', '<CMD>lua require("Comment.api").toggle_current_linewise()<CR>', opts)
 keymap('n', '<S-leader>/', '<CMD>lua require("Comment.api").toggle_current_blockwise()<CR>', opts)
 
 -- Nvimtree
-keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
+-- keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 
 -- Navigate buffers bufferline
 keymap("n", "<Tab>", ":BufferLineCycleNext<CR>", opts)
 keymap("n", "<S-Tab>", ":BufferLineCyclePrev", opts)
-keymap("n", "gb", ":BufferLinePick<CR>", opts)
-keymap("n", "<leader>c", "<cmd>Bdelete!<CR>", opts)
+-- keymap("n", "gb", ":BufferLinePick<CR>", opts)
+-- keymap("n", "<leader>c", "<cmd>Bdelete!<CR>", opts)
 
 
 -- Navigate jump through
