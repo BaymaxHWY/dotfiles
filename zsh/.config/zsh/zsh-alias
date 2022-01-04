@@ -21,24 +21,7 @@ alias psmem='ps auxf | sort -nr -k 4 | head -5'
 # get top process eating cpu ##
 alias pscpu='ps auxf | sort -nr -k 3 | head -5'
 
-case "$(uname -s)" in
-
-Darwin)
-	# echo 'Mac OS X'
-	alias ls='ls -G'
-	;;
-
-Linux)
-	alias ls='ls --color=auto'
-	;;
-
-CYGWIN* | MINGW32* | MSYS* | MINGW*)
-	# echo 'MS Windows'
-	;;
-*)
-	# echo 'Other OS'
-	;;
-esac
-
-alias vim=nvim
-alias ll='exa -la'
+alias ls="exa --color=always --icons --group-directories-first"
+alias ll="exa -la --color=always --icons --group-directories-first"
+alias tree="exa -a --color=always --icons --group-directories-first -T"
+alias v="nvim"

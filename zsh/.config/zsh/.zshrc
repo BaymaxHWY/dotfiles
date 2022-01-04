@@ -36,7 +36,6 @@ source "$ZDOTDIR/zsh-functions"
 zsh_add_file "zsh-exports"
 # zsh_add_file "zsh-vim-mode"
 zsh_add_file "zsh-alias"
-# zsh_add_file "zsh-prompt"
 
 # Plugins
 zsh_add_plugin "zsh-users/zsh-autosuggestions"
@@ -48,11 +47,11 @@ zsh_add_plugin "agkozak/zsh-z"
 # More completions https://github.com/zsh-users/zsh-completions
 
 # Themes
-zsh_add_theme "romkatv/powerlevel10k"
+# zsh_add_theme "romkatv/powerlevel10k"
+# zsh_add_theme "spaceship-prompt/spaceship-prompt"
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+zsh_add_file "zsh-prompt"
 # Key-bindings
 # bindkey -s '^o' 'ranger^M'
 # bindkey -s '^f' 'zi^M'

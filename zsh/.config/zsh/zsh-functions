@@ -35,6 +35,6 @@ function zsh_add_theme() {
   if [ -d "$ZDOTDIR/themes/$THEME_NAME" ]; then
     zsh_add_file "themes/$THEME_NAME/$THEME_NAME.zsh-theme"
   else 
-    git clone "https://gitee.com/$1.git" "$ZDOTDIR/themes/$THEME_NAME"
+    git clone "https://github.com/$1.git" "$ZDOTDIR/themes/$THEME_NAME"
   fi
 }
