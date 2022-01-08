@@ -46,6 +46,8 @@ return require('packer').startup(function(use)
   use {"akinsho/toggleterm.nvim"} -- terminal
   use "folke/zen-mode.nvim"  -- zen mode
   use "folke/twilight.nvim" -- focus code mode
+  use 'max397574/better-escape.nvim'
+
 
   use 'nvim-lua/plenary.nvim'
   use 'nvim-telescope/telescope.nvim'  -- Find, Filter, Preview, Pick. All lua, all the time.
