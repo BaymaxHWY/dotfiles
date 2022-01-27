@@ -43,6 +43,7 @@ local servers = {
 	"sumneko_lua", -- lua
   "jsonls", -- json
   "tsserver", -- js
+  "rust_analyzer", -- rust
 }
 
 for _, name in pairs(servers) do
