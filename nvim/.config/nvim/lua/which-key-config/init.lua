@@ -89,7 +89,8 @@ local mappings = {
   h = {
     name = "Hop",
     w = {"<cmd>:HopWord<cr>", "Word"},
-    c = {"<cmd>:HopChar1<cr>", "Char1"},
+    f = {"<cmd>:HopChar1CurrentLineAC<cr>", "Like f"},
+    F = {"<cmd>:HopChar1CurrentLineBC<cr>", "Like F"},
     l = {"<cmd>:HopLine<cr>", "Line"},
   },
 

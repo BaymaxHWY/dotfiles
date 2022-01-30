@@ -4,7 +4,7 @@ local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
 
 -- Automatically install packer
 if fn.empty(fn.glob(install_path)) > 0 then
-  PACKER_BOOTSTRAP = fn.system {
+  packer_bootstrap = fn.system {
     "git",
     "clone",
     "--depth",
@@ -31,6 +31,7 @@ packer.init {
   },
   git = {
    clone_timeout = 120,
+   -- default_url_format = 'https://hub.fastgit.org/%s',
   },
 }
 
@@ -44,18 +45,18 @@ return packer.startup(function(use)
   use 'kyazdani42/nvim-tree.lua' -- folder manage
   use 'kyazdani42/nvim-web-devicons' -- for file icon
   use 'nvim-lualine/lualine.nvim'  -- a statusline written in lua
-  use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
-  use "numToStr/Comment.nvim" -- Easily comment stuff
+  use 'windwp/nvim-autopairs' -- Autopairs, integrates with both cmp and treesitter
+  use 'numToStr/Comment.nvim' -- Easily comment stuff
   -- use 'romgrk/barbar.nvim'    -- tabs for neovim
   use 'akinsho/bufferline.nvim'
   use 'lukas-reineke/indent-blankline.nvim' -- guides to all lines (including empty lines).
   use 'goolord/alpha-nvim' -- start greeter page
   use 'lewis6991/impatient.nvim'
   use 'folke/which-key.nvim'
-  use "moll/vim-bbye" -- close buffer
+  use 'moll/vim-bbye' -- close buffer
   use {"akinsho/toggleterm.nvim"} -- terminal
-  use "folke/zen-mode.nvim"  -- zen mode
-  use "folke/twilight.nvim" -- focus code mode
+  use 'folke/zen-mode.nvim'  -- zen mode
+  use 'folke/twilight.nvim' -- focus code mode
   use 'max397574/better-escape.nvim'
   use 'machakann/vim-sandwich'
 
@@ -65,7 +66,8 @@ return packer.startup(function(use)
   use 'ahmedkhalf/project.nvim' -- project management for telescope
 
   -- use "blackCauldron7/surround.nvim"
-  use {'kevinhwang91/nvim-hlslens'}
+  use 'kevinhwang91/nvim-hlslens'
+  -- EasyMotion
   use {'phaazon/hop.nvim', branch = 'v1'}
 
   -- themes
@@ -73,8 +75,8 @@ return packer.startup(function(use)
 
   -- treesitter
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
-  use {'nvim-treesitter/nvim-treesitter-textobjects'}
-  use "SmiteshP/nvim-gps"
+  use 'nvim-treesitter/nvim-treesitter-textobjects'
+  use 'SmiteshP/nvim-gps'
   use 'andymass/vim-matchup'
 
   -- use {'ray-x/navigator.lua', requires = {'ray-x/guihua.lua', run = 'cd lua/fzy && make'}}
@@ -102,7 +104,7 @@ return packer.startup(function(use)
     run = 'cd app && yarn install'
   }
   -- git
-  use "lewis6991/gitsigns.nvim"
+  use 'lewis6991/gitsigns.nvim'
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
