@@ -45,15 +45,30 @@ keymap("n", "<S-Tab>", ":BufferLineCyclePrev", opts)
 -- keymap("n", "gb", ":BufferLinePick<CR>", opts)
 -- keymap("n", "<leader>c", "<cmd>Bdelete!<CR>", opts)
 
+-- hlslens
+keymap("n", "n", "<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>", opts)
+keymap("n", "N", "<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>", opts)
+keymap("n", "*", "*<Cmd>lua require('hlslens').start()<CR>", opts)
+keymap("n", "#", "#<Cmd>lua require('hlslens').start()<CR>", opts)
+keymap("n", "g*", "g*<Cmd>lua require('hlslens').start()<CR>", opts)
+keymap("n", "g#", "g#<Cmd>lua require('hlslens').start()<CR>", opts)
+
 
 -- Navigate jump through
 keymap("n", "<C-[>", "<C-o>", opts)
 keymap("n", "<C-]>", "<C-i>", opts)
 
+-- hop
+-- keymap("n", "f", "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true })<cr>", opts)
+-- keymap("n", "F", "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true })<cr>", opts)
+
+
 -- Insert --
 -- Press jk fast to enter
 -- keymap("i", "jk", "<ESC>", opts)
 -- keymap("i", "kj", "<ESC>", opts)
+-- insert semicolon int line end
+keymap("i", ";<CR>", "<C-o>A;<CR>", opts);
 
 
 -- Visual --
@@ -65,6 +80,7 @@ keymap("v", "Y", '"+y', opts)
 keymap("v", "p", '"_dP', opts)
 keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
+keymap("x", "s", "<Nop>", opts)
 
 
 -- Comment

@@ -16,17 +16,27 @@ if fn.empty(fn.glob(install_path)) > 0 then
   vim.cmd [[packadd packer.nvim]]
 end
 
--- Autocommand that reloads neovim whenever you save the plugins.lua file
-vim.cmd [[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugin-include/init.lua source <afile> | PackerSync
-  augroup end
-]]
+-- Use a protected call so we don't error out on first use
+local status_ok, packer = pcall(require, "packer")
+if not status_ok then
+  return
+end
+
+-- Have packer use a popup window
+packer.init {
+  display = {
+    open_fn = function()
+      return require("packer.util").float { border = "rounded" }
+    end,
+  },
+  git = {
+   clone_timeout = 120,
+  },
+}
 
 -- Use a protected call so we don't error out on first use
 
-return require('packer').startup(function(use)
+return packer.startup(function(use)
   -- My plugins here
   -- use 'foo1/bar1.nvim'
   -- use 'foo2/bar2.nvim'
@@ -47,20 +57,31 @@ return require('packer').startup(function(use)
   use "folke/zen-mode.nvim"  -- zen mode
   use "folke/twilight.nvim" -- focus code mode
   use 'max397574/better-escape.nvim'
+  use 'machakann/vim-sandwich'
 
 
   use 'nvim-lua/plenary.nvim'
   use 'nvim-telescope/telescope.nvim'  -- Find, Filter, Preview, Pick. All lua, all the time.
   use 'ahmedkhalf/project.nvim' -- project management for telescope
 
+  -- use "blackCauldron7/surround.nvim"
+  use {'kevinhwang91/nvim-hlslens'}
+  use {'phaazon/hop.nvim', branch = 'v1'}
+
   -- themes
   use 'EdenEast/nightfox.nvim'
 
   -- treesitter
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
+  use {'nvim-treesitter/nvim-treesitter-textobjects'}
+  use "SmiteshP/nvim-gps"
+  use 'andymass/vim-matchup'
+
+  -- use {'ray-x/navigator.lua', requires = {'ray-x/guihua.lua', run = 'cd lua/fzy && make'}}
 
   -- LSP
   use 'neovim/nvim-lspconfig'
+  -- use 'rmagatti/goto-preview'
   use 'williamboman/nvim-lsp-installer'                           --> Companion plugin for lsp-config, allows us to seamlesly install language servers
   -- use 'jose-elias-alvarez/null-ls.nvim'  -- automatic formate tool
   use 'tami5/lspsaga.nvim'                                        --> icons for LSP diagnostics

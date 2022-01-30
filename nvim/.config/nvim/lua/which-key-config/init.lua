@@ -1,3 +1,5 @@
+local presets = require("which-key.plugins.presets")
+presets.operators["s"] = nil
 local wk = require("which-key")
 
 local setup = {
@@ -11,11 +13,11 @@ local setup = {
     -- the presets plugin, adds help for a bunch of default keybindings in Neovim
     -- No actual key bindings are created
     presets = {
-      operators = false, -- adds help for operators like d, y, ... and registers them for motion / text object completion
+      operators = true, -- adds help for operators like d, y, ... and registers them for motion / text object completion
       motions = true, -- adds help for motions
       text_objects = true, -- help for text objects triggered after entering an operator
-      windows = true, -- default bindings on <c-w>
-      nav = true, -- misc bindings to work with windows
+      windows = false, -- default bindings on <c-w>
+      nav = false, -- misc bindings to work with windows
       z = false, -- bindings for folds, spelling and others prefixed with z
       g = false, -- bindings for prefixed with g
     },
@@ -76,13 +78,20 @@ local mappings = {
   ["w"] = { "<cmd>w!<CR>", "Save" },
   ["q"] = { "<cmd>q!<CR>", "Quit" },
   ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
-  ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
+  [";"] = { ":nohlsearch<CR>", "No Highlight" },
   ["f"] = {
-    "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+    "<cmd>lua require('telescope.builtin').find_files({hidden=true, layout_config={prompt_position='top'}})<cr>",
     "Find files",
   },
   ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
   ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
+
+  h = {
+    name = "Hop",
+    w = {"<cmd>:HopWord<cr>", "Word"},
+    c = {"<cmd>:HopChar1<cr>", "Char1"},
+    l = {"<cmd>:HopLine<cr>", "Line"},
+  },
 
   p = {
     name = "Packer",
@@ -118,29 +127,21 @@ local mappings = {
 
   l = {
     name = "LSP",
-    a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
-    d = {
-      "<cmd>Telescope diagnostics bufnr=0<cr>",
-      "Document Diagnostics",
-    },
-    w = {
-      "<cmd>Telescope diagnostics<cr>",
-      "Workspace Diagnostics",
-    },
-    f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
-    i = { "<cmd>LspInfo<cr>", "Info" },
-    I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
-    j = {
-      "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>",
-      "Next Diagnostic",
-    },
-    k = {
-      "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>",
-      "Prev Diagnostic",
-    },
-    l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
-    q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
-    r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
+    i = {":LspInfo<cr>", "Connected Language Servers"},
+    k = {"<cmd>lua vim.lsp.buf.signature_help()<cr>", "Signature Help"},
+    K = {"<cmd>Lspsaga hover_doc<cr>", "Hover Commands"},
+    w = {'<cmd>lua vim.lsp.buf.add_workspace_folder()<cr>', "Add Workspace Folder"},
+    W = {'<cmd>lua vim.lsp.buf.remove_workspace_folder()<cr>', "Remove Workspace Folder"},
+    l = {'<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<cr>', "List Workspace Folders"},
+    t = {'<cmd>lua vim.lsp.buf.type_definition()<cr>', "Type Definition"},
+    d = {'<cmd>lua vim.lsp.buf.definition()<cr>', "Go To Definition"},
+    D = {'<cmd>lua vim.lsp.buf.declaration()<cr>', "Go To Declaration"},
+    r = {'<cmd>Telescope lsp_references<cr>', "References"},
+    R = {'<cmd>Lspsaga rename<cr>', "Rename"},
+    a = {'<cmd>Lspsaga code_action<cr>', "Code Action"},
+    e = {'<cmd>Lspsaga show_line_diagnostics<cr>', "Show Line Diagnostics"},
+    n = {'<cmd>Lspsaga diagnostic_jump_next<cr>', "Go To Next Diagnostic"},
+    N = {'<cmd>Lspsaga diagnostic_jump_prev<cr>', "Go To Previous Diagnostic"},  
     s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
     S = {
       "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
@@ -168,7 +169,7 @@ local mappings = {
     f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
     h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
     v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
-  }, 
+  },
 }
 
 local opts = {

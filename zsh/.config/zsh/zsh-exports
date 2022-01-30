@@ -73,11 +73,14 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 # homebrew
-export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
+export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.ustc.edu.cn/brew.git"
+export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.ustc.edu.cn/homebrew-core.git"
+export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles"
 
 PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 PATH="$PATH:/usr/local/sbin"
-PATH="/$PATH:Library/Developer/CommandLineTools/usr/bin/"
+PATH="$PATH:/Library/Developer/CommandLineTools/usr/bin/"
 # export PATH="/$PATH:usr/local/opt/llvm/bin"
-PATH="/$PATH:usr/local/Cellar/redis/6.2.4/bin"
+PATH="$PATH:/usr/local/Cellar/redis/6.2.4/bin"
+PATH="$PATH:/usr/local/bin:/usr/local/sbin"
 
