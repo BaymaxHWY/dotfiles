@@ -29,31 +29,3 @@ gui:
 reporting: "off"
 splashupdatesindex: 0
 startuppopupversion: 1
-keybinding:
-  universal:
-    quit-alt1: '<esc>'
-    prevItem-alt: 'u'
-    nextItem-alt: 'e'
-    prevBlock-alt: 'n'
-    nextBlock-alt: 'i'
-    nextMatch: '='
-    prevMatch: '-'
-    new: 'k'
-    edit: 'o'
-    openFile: 'O'
-    scrollUpMain-alt1: 'U'
-    scrollDownMain-alt1: 'E'
-    scrollUpMain-alt2: '<c-u>'
-    scrollDownMain-alt2: '<c-e>'
-    undo: 'l'
-    redo: '<c-r>'
-    diffingMenu: 'M'
-    filteringMenu: '<c-f>'
-  files:
-    ignoreFile: 'I'
-  commits:
-    moveDownCommit: '<c-e>'
-    moveUpCommit: '<c-u>'
-  branches:
-    viewGitFlowOptions: 'I'
-    setUpstream: 'U'

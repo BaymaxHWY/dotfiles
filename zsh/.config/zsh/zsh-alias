@@ -27,3 +27,4 @@ alias tree="exa -a --color=always --icons --group-directories-first -T"
 alias v="nvim"
 
 alias terminal-config="v ~/.config/alacritty/alacritty.yml"
+alias lg="lazygit"
