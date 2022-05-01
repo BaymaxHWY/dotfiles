@@ -109,3 +109,5 @@ export EDITOR="nvim"
 # setxkbmap -option caps:escape
 # swap escape and caps
 # setxkbmap -option caps:swapescape
+#
+# alacritty

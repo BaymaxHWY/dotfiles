@@ -137,6 +137,7 @@ local mappings = {
     t = {'<cmd>lua vim.lsp.buf.type_definition()<cr>', "Type Definition"},
     d = {'<cmd>lua vim.lsp.buf.definition()<cr>', "Go To Definition"},
     D = {'<cmd>lua vim.lsp.buf.declaration()<cr>', "Go To Declaration"},
+    f = {'<cmd>lua vim.lsp.buf.formatting()<CR>', "Format"},
     r = {'<cmd>Telescope lsp_references<cr>', "References"},
     R = {'<cmd>Lspsaga rename<cr>', "Rename"},
     a = {'<cmd>Lspsaga code_action<cr>', "Code Action"},
