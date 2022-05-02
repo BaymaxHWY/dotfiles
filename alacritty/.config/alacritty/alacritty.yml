@@ -12,9 +12,9 @@ window:
    columns: 138
    lines: 42
   padding:
-   x: 15
-   y: 15
-  decorations: none
+   x: 10
+   y: 10
+  decorations: buttonless
   opacity: 1
 
   # Startup Mode (changes require restart)
@@ -29,7 +29,7 @@ window:
   # startup_mode: fullscreen
 
   # Window title
-  #title: Alacritty
+  title: Alacritty
 
   # Allow terminal applications to change Alacritty's window title.
   dynamic_title: true
@@ -52,6 +52,8 @@ font:
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
     family: Hack Nerd Font
+    # family: Fira Code
+    # family: Source Code Pro
 
     # The `style` can be specified to pick a specific face.
     style: Regular
@@ -62,7 +64,9 @@ font:
     #
     # If the bold family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: Hack Nerd Font 
+    family: Hack Nerd Font
+    # family: Fira Code
+    # family: Source Code Pro
 
     # The `style` can be specified to pick a specific face.
     style: Bold
@@ -73,7 +77,9 @@ font:
     #
     # If the italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: Hack Nerd Font 
+    family: Hack Nerd Font
+    # family: Fira Code
+    # family: Source Code Pro
 
     # The `style` can be specified to pick a specific face.
     style: Italic
@@ -84,7 +90,9 @@ font:
     #
     # If the bold italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: Hack Nerd Font 
+    family: Hack Nerd Font
+    # family: Fira Code
+    # family: Source Code Pro
 
     # The `style` can be specified to pick a specific face.
     style: Bold Italic
@@ -120,36 +128,98 @@ font:
   #builtin_box_drawing: true
 
 # If `true`, bold text is drawn using the bright color variants.
-#draw_bold_text_with_bright_colors: false
+draw_bold_text_with_bright_colors: true
 
-# Colors (Nord)
-colors:
-  # Default colors
-  primary:
-    background: '0x2E3440'
-    foreground: '0xD8DEE9'
 
-  # Normal colors
-  normal:
-    black:   '0x3B4252'
-    red:     '0xBF616A'
-    green:   '0xA3BE8C'
-    yellow:  '0xEBCB8B'
-    blue:    '0x81A1C1'
-    magenta: '0xB48EAD'
-    cyan:    '0x88C0D0'
-    white:   '0xE5E9F0'
+# color scheme select
+schemes:
+  Nord_dark: &Nord
+    # Default colors
+    primary:
+      background: '0x2E3440'
+      foreground: '0xD8DEE9'
 
-  # Bright colors
-  bright:
-    black:   '0x4C566A'
-    red:     '0xBF616A'
-    green:   '0xA3BE8C'
-    yellow:  '0xEBCB8B'
-    blue:    '0x81A1C1'
-    magenta: '0xB48EAD'
-    cyan:    '0x8FBCBB'
-    white:   '0xECEFF4'
+    # Normal colors
+    normal:
+      black:   '0x3B4252'
+      red:     '0xBF616A'
+      green:   '0xA3BE8C'
+      yellow:  '0xEBCB8B'
+      blue:    '0x81A1C1'
+      magenta: '0xB48EAD'
+      cyan:    '0x88C0D0'
+      white:   '0xE5E9F0'
+
+    # Bright colors
+    bright:
+      black:   '0x4C566A'
+      red:     '0xBF616A'
+      green:   '0xA3BE8C'
+      yellow:  '0xEBCB8B'
+      blue:    '0x81A1C1'
+      magenta: '0xB48EAD'
+      cyan:    '0x8FBCBB'
+      white:   '0xECEFF4'
+
+  NordFox: &NordFox
+    # Default colors
+    primary:
+      background: '0x2e3440'
+      foreground: '0xcdcecf'
+    # Normal colors
+    normal:
+      black:   '0x3b4252'
+      red:     '0xbf616a'
+      green:   '0xa3be8c'
+      yellow:  '0xebcb8b'
+      blue:    '0x81a1c1'
+      magenta: '0xb48ead'
+      cyan:    '0x88c0d0'
+      white:   '0xe5e9f0'
+    # Bright colors
+    bright:
+      black:   '0x465780'
+      red:     '0xd06f79'
+      green:   '0xb1d196'
+      yellow:  '0xf0d399'
+      blue:    '0x8cafd2'
+      magenta: '0xc895bf'
+      cyan:    '0x93ccdc'
+      white:   '0xe7ecf4'
+    indexed_colors:
+      - { index: 16, color: '0xc9826b' }
+      - { index: 17, color: '0xbf88bc' }
+
+  DoomOne: &DoomOne
+    primary:
+      background: '#282c34'
+      foreground: '#bbc2cf'
+    cursor:
+      text: CellBackground
+      cursor: '#528bff'
+    selection:
+      text: CellForeground
+      background: '#3e4451'
+    normal:
+      black:   '#1c1f24'
+      red:     '#ff6c6b'
+      green:   '#98be65'
+      yellow:  '#da8548'
+      blue:    '#51afef'
+      magenta: '#c678dd'
+      cyan:    '#5699af'
+      white:   '#202328'
+    bright:
+      black:   '#5b6268'
+      red:     '#da8548'
+      green:   '#4db5bd'
+      yellow:  '#ecbe7b'
+      blue:    '#3071db'   # This is 2257a0 in Doom Emacs but I lightened it.
+      magenta: '#a9a1e1'
+      cyan:    '#46d9ff'
+      white:   '#dfdfdf'
+
+colors: *NordFox
       
 # Bell
 #
