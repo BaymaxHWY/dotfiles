@@ -1,6 +1,6 @@
 # Dotfile
 
-zsh、tmux、nvim
+zsh、tmux、nvim、alacritty
 
 # command tools
 
@@ -14,3 +14,4 @@ htop
 > need `stow` to install the dotfiles
 
 `stow nvim`
+`stow --target=/absolute/path/to/dir {nvim/tmux/alacritty/zsh}`
