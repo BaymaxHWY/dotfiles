@@ -4,7 +4,7 @@ local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
 
 -- Automatically install packer
 if fn.empty(fn.glob(install_path)) > 0 then
-  packer_bootstrap = fn.system {
+  PACKER_BOOTSTRAP = fn.system {
     "git",
     "clone",
     "--depth",
@@ -31,58 +31,75 @@ packer.init {
   },
   git = {
    clone_timeout = 120,
-   -- default_url_format = 'https://hub.fastgit.org/%s',
+   default_url_format = 'https://hub.fastgit.org/%s'
   },
 }
 
 -- Use a protected call so we don't error out on first use
 
 return packer.startup(function(use)
-  -- My plugins here
-  -- use 'foo1/bar1.nvim'
-  -- use 'foo2/bar2.nvim'
   use 'wbthomason/packer.nvim' -- plugin manage self
-  use 'kyazdani42/nvim-tree.lua' -- folder manage
-  use 'kyazdani42/nvim-web-devicons' -- for file icon
+  
+  -- My plugins here
+  -- GUI plugin
   use 'nvim-lualine/lualine.nvim'  -- a statusline written in lua
-  use 'windwp/nvim-autopairs' -- Autopairs, integrates with both cmp and treesitter
-  use 'numToStr/Comment.nvim' -- Easily comment stuff
-  -- use 'romgrk/barbar.nvim'    -- tabs for neovim
-  use 'akinsho/bufferline.nvim'
-  use 'lukas-reineke/indent-blankline.nvim' -- guides to all lines (including empty lines).
   use 'goolord/alpha-nvim' -- start greeter page
-  use 'lewis6991/impatient.nvim'
-  use 'folke/which-key.nvim'
-  use 'moll/vim-bbye' -- close buffer
-  use {"akinsho/toggleterm.nvim"} -- terminal
-  use 'folke/zen-mode.nvim'  -- zen mode
-  use 'folke/twilight.nvim' -- focus code mode
-  use 'max397574/better-escape.nvim'
-  use 'machakann/vim-sandwich'
-
-
+  use 'EdenEast/nightfox.nvim'
+  
+  -- Fuzzy Finder plugins
   use 'nvim-lua/plenary.nvim'
   use 'nvim-telescope/telescope.nvim'  -- Find, Filter, Preview, Pick. All lua, all the time.
+
+  
+  -- LSP plugins
+  use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
+  use 'neovim/nvim-lspconfig'
+
+
+  
+  -- File Exploer
+  use 'SidOfc/carbon.nvim' -- simple file exploer
+
+  -- use 'kyazdani42/nvim-tree.lua' -- folder manage
+  -- use 'kyazdani42/nvim-web-devicons' -- for file icon
+
+
+  
+  -- Utils plugins
+  use 'windwp/nvim-autopairs' -- Autopairs, integrates with both cmp and treesitter
+  use 'numToStr/Comment.nvim' -- Easily comment stuff
+  use 'lukas-reineke/indent-blankline.nvim' -- guides to all lines (including empty lines).
+  use 'folke/which-key.nvim' -- Reminder keys, just for rarely use keys
+  use 'lewis6991/impatient.nvim' -- Speed up loading Lua modules in Neovim to improve startup time.
+  use 'max397574/better-escape.nvim' -- Better for jk
+  use 'kevinhwang91/nvim-hlslens' -- Enhance match `/ or ?`
+  use {'phaazon/hop.nvim', branch = 'v1'} -- search word and jump to it's local
+  use "lewis6991/gitsigns.nvim" -- nice git
+
+
+
+  
+  
+  -- use 'romgrk/barbar.nvim'    -- tabs for neovim
+  use 'akinsho/bufferline.nvim'
+  use "moll/vim-bbye" -- close buffer
+  use {"akinsho/toggleterm.nvim"} -- terminal
+  use "folke/zen-mode.nvim"  -- zen mode
+  use "folke/twilight.nvim" -- focus code mode
+
+
   use 'ahmedkhalf/project.nvim' -- project management for telescope
 
   -- use "blackCauldron7/surround.nvim"
-  use 'kevinhwang91/nvim-hlslens'
-  -- EasyMotion
-  use {'phaazon/hop.nvim', branch = 'v1'}
 
   -- themes
-  use 'EdenEast/nightfox.nvim'
 
   -- treesitter
-  use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
-  use 'nvim-treesitter/nvim-treesitter-textobjects'
-  use 'SmiteshP/nvim-gps'
-  use 'andymass/vim-matchup'
+  use {'nvim-treesitter/nvim-treesitter-textobjects'}
 
   -- use {'ray-x/navigator.lua', requires = {'ray-x/guihua.lua', run = 'cd lua/fzy && make'}}
 
   -- LSP
-  use 'neovim/nvim-lspconfig'
   -- use 'rmagatti/goto-preview'
   use 'williamboman/nvim-lsp-installer'                           --> Companion plugin for lsp-config, allows us to seamlesly install language servers
   -- use 'jose-elias-alvarez/null-ls.nvim'  -- automatic formate tool
@@ -104,7 +121,6 @@ return packer.startup(function(use)
     run = 'cd app && yarn install'
   }
   -- git
-  use 'lewis6991/gitsigns.nvim'
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
