@@ -28,3 +28,5 @@ alias v="nvim"
 
 alias terminal-config="v ~/.config/alacritty/alacritty.yml"
 alias lg="lazygit"
+
+alias top="btm"
