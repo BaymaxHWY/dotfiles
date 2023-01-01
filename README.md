@@ -25,3 +25,7 @@ zsh、tmux、nvim、alacritty
 1. zsh
 *need install zsh*
 `stow zsh && chsh -s $(which zsh)`
+
+2. neovim
+
+must version >= 8.0

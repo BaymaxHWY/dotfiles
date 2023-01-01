@@ -1,4 +1,4 @@
-require("nvim-gps").setup({
+require("nvim-navic").setup({
   icons = {
     ["class-name"] = " ", -- Classes and class-like objects
     ["function-name"] = " ", -- Functions

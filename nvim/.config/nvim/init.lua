@@ -1,7 +1,6 @@
 require("options")
 require("keymaps")
 require("plugin-include")
-require("nvim-tree-config")
 require("themes.nightfox")
 require("autopair-config")
 require("bufferline-config")
