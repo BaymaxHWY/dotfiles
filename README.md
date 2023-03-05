@@ -29,3 +29,7 @@ zsh、tmux、nvim、alacritty
 2. neovim
 
 must version >= 8.0
+
+# OS version
+main-branch -> macos
+linux-branch -> linux(ubuntu)
