@@ -28,7 +28,7 @@ local bubbles_theme = {
   },
 }
 
-local gps = require("nvim-gps")
+local gps = require("nvim-navic")
 require'lualine'.setup({
     options = {
       theme = bubbles_theme,

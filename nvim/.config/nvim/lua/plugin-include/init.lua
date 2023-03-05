@@ -54,6 +54,7 @@ return packer.startup(function(use)
   -- LSP plugins
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
   use 'neovim/nvim-lspconfig'
+  use {"SmiteshP/nvim-navic", requires = "neovim/nvim-lspconfig"}
 
 
   
@@ -73,7 +74,7 @@ return packer.startup(function(use)
   use 'lewis6991/impatient.nvim' -- Speed up loading Lua modules in Neovim to improve startup time.
   use 'max397574/better-escape.nvim' -- Better for jk
   use 'kevinhwang91/nvim-hlslens' -- Enhance match `/ or ?`
-  use {'phaazon/hop.nvim', branch = 'v1'} -- search word and jump to it's local
+  use {'phaazon/hop.nvim', branch = 'v2'} -- search word and jump to it's local
   use "lewis6991/gitsigns.nvim" -- nice git
 
 

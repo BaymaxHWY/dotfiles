@@ -10,7 +10,7 @@ zstyle ':vcs_info:*' enable git
 precmd() { vcs_info }
 setopt PROMPT_SUBST
 zstyle ':vcs_info:git:*' formats '  %b'
-PS1='%{$fg[blue]%}%1~%{$fg[yellow]%}${vcs_info_msg_0_} %{$fg[green]%} %{$reset_color%}'
+PS1='$fg[cyan]%}[tx-cloud] %{$fg[blue]%}%1~%{$fg[yellow]%}${vcs_info_msg_0_} %{$fg[green]%} %{$reset_color%}'
 
 # full style prompt
 ## autoload vcs and colors
